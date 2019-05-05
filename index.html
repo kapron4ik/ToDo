@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+	<div id="panels">
+		<div id="wrapperTodo">
+			<div class="title">
+				<i class="fas fa-plus-square iconPlus" onclick="makeRequest('https://jsonplaceholder.typicode.com/todos')"></i>
+				<i class="fas fa-minus-square iconMinus" onclick="clearAll()" ></i>
+				<p>To Do</p>
+				<div class="counter" id="countTodo"></div>
+			</div>
+			<div class="panel" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="btns">
+				<i class="fas fa-plus-circle" onclick="openForm()"></i>
+				<i class="fas fa-minus-circle" onclick="clearTodo()"></i>
+			</div>
+		</div>
+		<div id="wrapperInprogress">
+			<div class="title">
+				<p>In Progress</p>
+				<div class="counter" id="countInprogress"></div>
+			</div>
+			<div class="panel" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="btns">
+				<i class="fas fa-minus-circle" onclick="clearInprogress()"></i>
+			</div>
+		</div>
+		<div id="wrapperDone">
+			<div class="title">
+				<p>Done</p>
+				<div class="counter" id="countDone"></div>
+			</div>
+			<div class="panel" id="done" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="btns">
+				<i class="fas fa-minus-circle" onclick="clearDone()"></i>
+			</div>
+		</div>
+	</div>
+	<div id="form">
+		<form>
+			<textarea id="new-todo" placeholder="Enter new todo"></textarea>
+			<button type="button" id="cancel" onclick="cancelForm()">Cancel</button>
+			<button type="button" id="save" onclick="addElement()">Save</button>
+		</form>
+	</div>
+	<script src="draganddrop.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
